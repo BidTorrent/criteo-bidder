@@ -19,9 +19,9 @@ class CriteoBidTorrentDecoder
         
         $this->helper->Set($request, array('user', 'buyeruid'), $userId);
         $this->bidfloor = $this->helper->Get($request, array('imp', 0, 'bidfloor'));
-        $this->btId = $this->helper->Get($response, array('site', 'publisher', 'id'));
+        $this->btId = $this->helper->Get($request, array('site', 'publisher', 'id'));
         if ($this->btid == null)
-            $this->btId = $this->helper->Get($response, array('app', 'publisher', 'id'));
+            $this->btId = $this->helper->Get($request, array('app', 'publisher', 'id'));
         
         $decodedRequest = $request;
         return true;

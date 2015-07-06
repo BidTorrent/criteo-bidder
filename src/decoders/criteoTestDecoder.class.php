@@ -63,7 +63,6 @@ class CriteoTestDecoder
     }
 
     function tryEncode($rawResponse, &$response, &$errorMessage) {
-
         $criteoResponse = $rawResponse;
 
         if ($criteoResponse == null) {
