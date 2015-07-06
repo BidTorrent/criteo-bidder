@@ -14,7 +14,7 @@ class CriteoTestDecoder
 
     function tryDecode($stream, $userId, &$request, &$errorMessage) {
         $content = $stream;
-        
+
         if ($content == null)
         {
             $errorMessage = 'Not able to read the json';
@@ -55,7 +55,7 @@ class CriteoTestDecoder
         $criteoRequest['ext']['btid']                       = $this->helper->Get($content, array('ext', 'btid'));
 
         $request = array('bidrequest' => $criteoRequest);
-    
+
         $this->bidtorrentId = isset($content['site']['id']) ? $content['site']['publisher']['id'] : $content['app']['publisher']['id'] ;
         $this->currency = $content['cur'];
         $this->bidfloor = $content['imp'][0]['bidfloor'];
@@ -90,7 +90,7 @@ class CriteoTestDecoder
         $seatbid = array();
         $seatbid['bid'] = array($seatbidObject);
         $response['seatbid'] = array($seatbid);
-        
+
         return true;
     }
 }

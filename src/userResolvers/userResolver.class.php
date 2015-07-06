@@ -8,7 +8,7 @@ class UserResolver
         if (isset($cookies['uid'])) {
             return $cookies['uid'];
         }
-        
+
         if (!isset($cookies['Ids']))
         {
             return '';

@@ -7,7 +7,7 @@ class DecoderHelper {
     function __construct($privateKeyFile) {
         $this->privateKeyFile = $privateKeyFile;
     }
-    
+
     function Set(&$obj, $keys, $value) {
         if ($value == null)
             return;
