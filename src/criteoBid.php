@@ -12,7 +12,7 @@
     $helper = new DecoderHelper('keys/key-1-private.pem');
     $decoder = new CriteoTestDecoder($helper);
     $userResolver = new UserResolver();
-    $innerBidder = new CriteoBidder('http://rtb.fr.eu.criteo.com/delivery/auction/request?profile=55');
+    $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=55');
     
     $bidder = new WrapperBidder(
         $userResolver,
