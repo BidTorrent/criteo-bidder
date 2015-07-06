@@ -22,5 +22,5 @@
 
     $request = json_decode(file_get_contents("php://input"), true);
     $response = $bidder->GetResponse($request);
-    echo json_encode($response, JSON_PRETTY_PRINT);
+    echo json_encode($response);
 ?>
