@@ -26,8 +26,7 @@ class TestBidder {
                         )
                     )
                 )
-            ),
-            "ext" => array( "btid" => 'lkfjsldfkj')
+            )
         );
         
         return $response;

@@ -1,0 +1,8 @@
+curl -X POST --data-binary @bidtorrent-inapp.json "http://dev.bidtorrent.io/testBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-web.json "http://dev.bidtorrent.io/testBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-inapp.json "http://bidder.bidtorrent.io/testBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-web.json "http://bidder.bidtorrent.io/testBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-inapp.json "http://dev.bidtorrent.io/criteoBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-web.json "http://dev.bidtorrent.io/criteoBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-inapp.json "http://bidder.bidtorrent.io/criteoBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
+curl -X POST --data-binary @bidtorrent-web.json "http://bidder.bidtorrent.io/criteoBid.php" --cookie "uid=7387e308-fd65-40fd-ad90-564f6104d603" --verbose
