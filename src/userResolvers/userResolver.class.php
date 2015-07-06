@@ -5,8 +5,8 @@ class UserResolver
 
     function getUserId($cookies) {
 
-        if (isset($cookie['uid'])) {
-            return $cookie['uid'];
+        if (isset($cookies['uid'])) {
+            return $cookies['uid'];
         }
         
         if (!isset($cookies['Ids']))
