@@ -12,7 +12,7 @@ class TestBidder {
     
         $response = array(
             "id" => $request['id'],
-            "cur" => "EUR",
+            "cur" => "USD",
             "seatbid" => array(
                 array(
                     "bid" => array(
