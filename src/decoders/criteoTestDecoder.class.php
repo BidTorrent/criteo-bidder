@@ -51,7 +51,7 @@ class CriteoTestDecoder
         $slot['Sizes']                                      = array(array('Item1' => $content['imp'][0]['banner']['w'], 'Item2' => $content['imp'][0]['banner']['h']));
         $slot['MinCpm']                                     = $content['imp'][0]['bidfloor'];
         $criteoRequest['Slots']                             = array($slot);
-        $criteoRequest['Currency']                          = $content['cur'];
+        $criteoRequest['Currency']                          = "EUR"; //$content['cur'];
         $criteoRequest['ext']['btid']                       = $this->helper->Get($content, array('ext', 'btid'));
 
         $request = array('bidrequest' => $criteoRequest);
