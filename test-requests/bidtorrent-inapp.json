@@ -1,0 +1,45 @@
+{
+  "user": {
+    "id": "MyID",
+    "buyeruid": "MyID"
+  },
+  "app": { 
+    "id": "123"
+    "domain": "www.bbc.com",
+    "mobile": 1,
+    "publisher": {
+      "id": "42",
+      "name": "Yahoo"
+    }
+  },
+  "cur": "EUR",
+  "device": {
+    "geo": {  
+        "country": "USA"
+    },
+    "ip": "91.199.242.236",
+    "js": 1,
+    "language": "en",
+    "make": "Apple",
+    "model": "iPhone",
+    "os": "iOS",
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329"
+  },
+  "id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+  "imp": [
+    {
+      "banner": {
+        "btype": [
+          4
+        ],
+        "h": 250,
+        "pos": 1,
+        "w": 300
+        },
+      "bidfloor": 0.01,
+      "id": "1",
+      "instl": 1,
+      "secure": false
+    } ],
+    "tmax": 100
+}

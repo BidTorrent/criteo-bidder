@@ -1,0 +1,39 @@
+{
+	"bidrequest": {
+		"Analysis": 1,
+		"PublisherID": "123",
+		"Timeout": 120,
+		"AppInfo": {
+			"AppId": "123",
+			"AppName": "Yahoo"
+		},
+		"RequestID": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+		"Device": {
+			"IdCategory": "ANDROID_ID",
+			"EnvironmentType": 1,
+			"Id": null,
+			"OperatingSystemType": 2
+		},
+		"User": {
+			"CriteoUser": {
+				"Id": "7387e308-fd65-40fd-ad90-564f6104d603",
+				"Version": 1
+			},
+			"IpAddress": "91.199.242.236"
+		},
+		"Slots": [{
+			"SlotId": 1,
+			"Intention": 0,
+			"RenderContainer": 1,
+			"Sizes": [{
+				"Item1": 300,
+				"Item2": 250
+			}],
+			"MinCpm": 1.75
+		}],
+		"Currency": "EUR",
+		"ext": {
+			"btid": 42
+		}
+	}
+}
