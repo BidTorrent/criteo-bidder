@@ -7,6 +7,45 @@ class TestBidder {
 
     function GetResponse($request) {
 
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $parse = parse_url($url);
+        $scheme = isset($parse['scheme']) ? $parse['scheme'] . '://' : '//';
+        $urlPrefix = $scheme.$parse['host'].substr($parse['path'], 0, strrpos($parse['path'], '/') + 1);
+
+        $jsonRespScriptDirect = '{
+                                "id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+                                "seatbid": [{
+                                    "bid": [{
+                                        "id": "559bde378d2fc1f55b9d68f718be4410",
+                                        "impid": "1",
+                                        "price": 13.71,
+                                        "adid": "22",
+                                        "crid": "2300751",
+                                        "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
+                                        "adm": "<script type=\'text/javascript\' src=\'\'>alert(\'This is a test !\');</script>",
+                                        "adomain": ["laredoute.fr"]
+                                    }]
+                                }],
+                                "cur": "USD"
+                            }';
+
+        $jsonRespScriptIndirect = '{
+                                "id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+                                "seatbid": [{
+                                    "bid": [{
+                                        "id": "559bde378d2fc1f55b9d68f718be4410",
+                                        "impid": "1",
+                                        "price": 13.71,
+                                        "adid": "22",
+                                        "crid": "2300751",
+                                        "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
+                                        "adm": "<script type=\'text/javascript\' src=\'' . $urlPrefix . 'script.js' . '\'></script>",
+                                        "adomain": ["laredoute.fr"]
+                                    }]
+                                }],
+                                "cur": "USD"
+                            }';
+
         $jsonRespScript = '{
                                 "id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
                                 "seatbid": [{
@@ -41,7 +80,16 @@ class TestBidder {
                                 "cur": "USD"
                             }';
 
-        $json = isset($request['site']) ? $jsonRespIFrame : $jsonRespScript;
+        $type = isset($_GET['type']) ? $_GET['type'] : '';
+
+        if ($type == 'jsdirect')
+            $json = $jsonRespScriptDirect;
+        elseif ($type == 'jsindirect')
+            $json = $jsonRespScriptIndirect;
+        elseif ($type == 'jscriteo')
+            $json = $jsonRespScript;
+        else
+            $json = isset($request['site']) ? $jsonRespIFrame : $jsonRespScript;
 
         return  json_decode($json, true);
     }
