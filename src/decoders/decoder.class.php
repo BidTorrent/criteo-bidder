@@ -54,10 +54,10 @@ class CriteoBidTorrentDecoder
     
     private function Sign($price, $requestId, $publisherId, $bidfloor) {
         $key = file_get_contents($this->privateKeyFile);
-        $data = number_format($price, 6).
+        $data = number_format($price, 6, ".", "").
                 $requestId.
                 $publisherId.
-                number_format($bidfloor, 6);
+                number_format($bidfloor, 6, ".", "");
         openssl_sign($data, $result, $key);
         return base64_encode($result);
     }
