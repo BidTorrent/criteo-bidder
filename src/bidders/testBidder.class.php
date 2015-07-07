@@ -7,30 +7,43 @@ class TestBidder {
 
     function GetResponse($request) {
 
-        $creative = isset($request['site']) ?
-                "<iframe id='ac63b35f' name='ac63b35f' src='http://cas.fr.eu.criteo.com/delivery/r/afr.php?did=55967552f3fd1983d2fd1e67f3d23860&z=\${AUCTION_PRICE}&u=%7CtobaNQh5osYtBHWMWmrNqgyc2ye3d5I5wlNsJI%2FBr0Y%3D%7C&c1=MriEWuZJTjDISPFA0eU2oCb2hD0ICgkYds8alBDiggnQdpchtSVtCcD5LZRB_hY9wjGLbbis4L5J5Yw313MZME_K2h3JSki-RuDYVNJRLVv3RAv3Ih0EjbjBlZu7jwn9XvtjDIbpkIUVilFdCL239W3wDX9Ve65O2Qp2hWO5KH6BE9_dZos53nF6LlQlVabr7lK56c9fA-wqNwASvaGLktu32V7d4vaNdqdD1tHdP70&ct0=\${CLICK_URL}' framespacing='0' frameborder='no' scrolling='no' width='300' height='250'></iframe>"
-              :  "<script type='text/javascript' src='http://cas.fr.eu.criteo.com/delivery/r/ajs.php?did=559401bb8f9c6c9bb27e9d9d863e6df0&z=\${AUCTION_PRICE}&u=%7CI7o9XoAMMjl3HUcPVb3V2ZrBz3DszK8XlyOeSO5CqTc%3D%7C&c1=4z_1vBnVXyU3s5S1ODdcxBEhMh_1PE6dCt88-QtmDLG9BBdwzMTh2CtSDEVErFQDw4w7x8OFfnXnkfpEV-cFqznHSWR1Th9Q31_9KWeD80wN3wI2CEdDgi7v4Ymyl6qk367XHc2xzTvWq2fT0Fh_a3M0w1pLIwZfkpBcYSIkcj9D2K1RK8M4LPj0EAF8FbWARXwcOLtMQ4vEzV1rvzU6aEmZ_iSXY5uz&ct0=\${CLICK_URL}'></script>";
+        $jsonRespScript = '{
+                                "id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+                                "seatbid": [{
+                                    "bid": [{
+                                        "id": "559bde378d2fc1f55b9d68f718be4410",
+                                        "impid": "1",
+                                        "price": 13.71,
+                                        "adid": "22",
+                                        "crid": "2300751",
+                                        "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
+                                        "adm": "<script type=\'text/javascript\' src=\'http://cas.fr.eu.criteo.com/delivery/r/ajs.php?did=559bde378d2fc1f55b9d68f718be4410&z=${AUCTION_PRICE}&u=%7CKxl30IlBT9AoAln2B5ccT6RqtJaBgL3uEN35d2MS12U%3D%7C&c1=jP7idqKkb0nqtqZqftPNuloALPoDC0n5wswCp8kjRpkUdhIV0EcUP_BZ3s8W4buw3pzN2TtWuDcp4_qbH0kWeNrBLCf4VZl22Pw_qU9rdvVC2--xG-j90nq8QMTjJlBxxaaoogHxbbvSMeiYHtCum98Wm7V0Niy6hrJTwJjvwbi85TUFSUIuHyJGfqemSQt8FjRjep1ToB_k0c0Fc8Q2vkNw4lX_8VkGMnciBazrsXY&ct0=${CLICK_URL}\'></script>",
+                                        "adomain": ["laredoute.fr"]
+                                    }]
+                                }],
+                                "cur": "USD"
+                            }';
 
-        $response = array(
-            "id" => $request['id'],
-            "cur" => "USD",
-            "seatbid" => array(
-                array(
-                    "bid" => array(
-                        array(
-                            "id" => "559401bb8f9c6c9bb27e9d9d863e6df0",
-                            "impid" => $request['imp'][0]['id'],
-                            "price" => 0.032,
-                            "nurl" => "",
-                            "adomain" => "miniinthebox.com",
-                            "creative" => $creative
-                        )
-                    )
-                )
-            )
-        );
+        $jsonRespIFrame = '{
+                                "id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+                                "seatbid": [{
+                                    "bid": [{
+                                        "id": "559bdfa7f68e949e703bffa420f33f30",
+                                        "impid": "1",
+                                        "price": 16.77,
+                                        "adid": "22",
+                                        "crid": "2300751",
+                                        "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
+                                        "adm": "<iframe id=\'ac63b35f\' name=\'ac63b35f\' src=\'http://cas.fr.eu.criteo.com/delivery/r/afr.php?did=55967552f3fd1983d2fd1e67f3d23860&z=${AUCTION_PRICE}&u=%7CtobaNQh5osYtBHWMWmrNqgyc2ye3d5I5wlNsJI%2FBr0Y%3D%7C&c1=MriEWuZJTjDISPFA0eU2oCb2hD0ICgkYds8alBDiggnQdpchtSVtCcD5LZRB_hY9wjGLbbis4L5J5Yw313MZME_K2h3JSki-RuDYVNJRLVv3RAv3Ih0EjbjBlZu7jwn9XvtjDIbpkIUVilFdCL239W3wDX9Ve65O2Qp2hWO5KH6BE9_dZos53nF6LlQlVabr7lK56c9fA-wqNwASvaGLktu32V7d4vaNdqdD1tHdP70&ct0=${CLICK_URL}\' framespacing=\'0\' frameborder=\'no\' scrolling=\'no\' width=\'300\' height=\'250\'></iframe>",
+                                        "adomain": ["laredoute.fr"]
+                                    }]
+                                }],
+                                "cur": "USD"
+                            }';
 
-        return $response;
+        $json = isset($request['site']) ? $jsonRespIFrame : $jsonRespScript;
+
+        return  json_decode($json, true);
     }
 }
 
