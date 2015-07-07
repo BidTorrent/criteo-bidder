@@ -20,11 +20,9 @@
 
     $request = json_decode(file_get_contents("php://input"), true);
     $response = $bidder->GetResponse($request);
-
-    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    header("Cache-Control: post-check=0, pre-check=0", false);
-    header("Pragma: no-cache");
     header('Content-Type: application/json');
-
+    header('Cache-Control: no-cache, no-store, must-revalidate');
+    header('Pragma: no-cache');
+    header('Expires: 0');
     echo json_encode($response);
 ?>
