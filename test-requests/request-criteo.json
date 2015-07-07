@@ -1,39 +1,52 @@
 {
-	"bidrequest": {
-		"Analysis": 1,
-		"PublisherID": "123",
-		"Timeout": 500,
-		"AppInfo": {
-			"AppId": "42",
-			"AppName": "Yahoo"
-		},
-		"RequestID": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
-		"Device": {
-			"IdCategory": "ANDROID_ID",
-			"EnvironmentType": 1,
-			"Id": null,
-			"OperatingSystemType": 2
-		},
-		"User": {
-			"CriteoUser": {
-				"Id": "7387e308-fd65-40fd-ad90-564f6104d603",
-				"Version": 1
-			},
-			"IpAddress": "91.199.242.236"
-		},
-		"Slots": [{
-			"SlotId": 1,
-			"Intention": 0,
-			"RenderContainer": 1,
-			"Sizes": [{
-				"Item1": 300,
-				"Item2": 250
-			}],
-			"MinCpm": 0.01
-		}],
-		"Currency": "EUR",
-		"ext": {
-			"btid": null
+	"user": {
+		"id": "MyID",
+		"buyeruid": "7387e308-fd65-40fd-ad90-564f6104d603"
+	},
+	"site": {
+		"id": "123",
+		"cat": ["IAB1",
+		"IAB9",
+		"IAB9-30",
+		"entertainment",
+		"games"],
+		"domain": "www.bbc.com",
+		"mobile": 1,
+		"publisher": {
+			"id": "42",
+			"name": "Yahoo"
 		}
-	}
+	},
+	"badv": ["porn.com",
+	"badcontent2.net",
+	"competitivegame.com"],
+	"bcat": ["IAB6-7",
+	"IAB7-3",
+	"IAB7-28"],
+	"cur": "USD",
+	"device": {
+		"geo": {
+			"country": "USA"
+		},
+		"ip": "91.199.242.236",
+		"js": 1,
+		"language": "en",
+		"make": "Apple",
+		"model": "iPhone",
+		"ua": "Mozilla\/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit\/536.26 (KHTML, like Gecko) Mobile\/10B329"
+	},
+	"id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
+	"imp": [{
+		"banner": {
+			"btype": [4],
+			"h": 250,
+			"pos": 1,
+			"w": 300
+		},
+		"bidfloor": 0.01,
+		"id": "1",
+		"instl": 1,
+		"secure": false
+	}],
+	"tmax": 500
 }

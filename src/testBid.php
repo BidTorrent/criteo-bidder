@@ -3,14 +3,12 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
 
-    include('decoders/decoderHelper.class.php');
-    include('decoders/criteoBidTorrentDecoder.class.php');
+    include('decoders/decoder.class.php');
     include('userResolvers/userResolver.class.php');
     include('bidders/testBidder.class.php');
     include('bidders/wrapperBidder.class.php');
 
-    $helper = new DecoderHelper('keys/key-2-private.pem');
-    $decoder = new CriteoBidTorrentDecoder($helper);
+    $decoder = new CriteoBidTorrentDecoder('keys/key-2-private.pem');
     $userResolver = new UserResolver();
     $innerBidder = new TestBidder();
 
