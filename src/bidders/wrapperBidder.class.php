@@ -2,19 +2,17 @@
 
 class WrapperBidder{
 
-    var $userResolver;
     var $decoder;
     var $bidder;
 
-    function __construct ($userResolver, $decoder, $bidder) {
-        $this->userResolver = $userResolver;
+    function __construct ($decoder, $bidder) {
         $this->decoder = $decoder;
         $this->bidder = $bidder;
     }
 
     function GetResponse($request) {
 
-        $userId = $this->userResolver->getUserId($_COOKIE);
+        $userId = isset($cookies['uid']) ? $cookies['uid'] : '';
 
         header("X-CriteoBidder-UserId: $userId");
 

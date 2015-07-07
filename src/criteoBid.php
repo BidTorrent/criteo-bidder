@@ -4,16 +4,13 @@
     ini_set('display_errors', 'on');
 
     include('decoders/decoder.class.php');
-    include('userResolvers/userResolver.class.php');
     include('bidders/criteoBidder.class.php');
     include('bidders/wrapperBidder.class.php');
 
     $decoder = new Decoder('keys/key-1-private.pem');
-    $userResolver = new UserResolver();
     $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=61&debug=1');
 
     $bidder = new WrapperBidder(
-        $userResolver,
         $decoder,
         $innerBidder
     );

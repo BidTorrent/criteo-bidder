@@ -3,16 +3,13 @@
     ini_set('display_errors', 'on');
 
     include('decoders/decoder.class.php');
-    include('userResolvers/userResolver.class.php');
     include('bidders/testBidder.class.php');
     include('bidders/wrapperBidder.class.php');
 
     $decoder = new Decoder('keys/key-2-private.pem');
-    $userResolver = new UserResolver();
     $innerBidder = new TestBidder();
 
     $bidder = new WrapperBidder(
-        $userResolver,
         $decoder,
         $innerBidder
     );
