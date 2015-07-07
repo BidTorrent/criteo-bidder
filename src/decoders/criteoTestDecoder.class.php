@@ -24,7 +24,7 @@ class CriteoTestDecoder
         $criteoRequest                                      = array();
         $criteoRequest['Analysis']                          = 1;
         $criteoRequest['PublisherID']                       = isset($content['site']) ? $content['site']['id'] : $content['app']['id'];
-        $criteoRequest['Timeout']                           = 120;
+        $criteoRequest['Timeout']                           = 250;
 
         $criteoRequest['AppInfo']                           = array();
         $criteoRequest['AppInfo']['AppId']                  = $this->helper->Get($content, array('app', 'publisher', 'id'));
@@ -52,7 +52,6 @@ class CriteoTestDecoder
         $slot['MinCpm']                                     = $content['imp'][0]['bidfloor'];
         $criteoRequest['Slots']                             = array($slot);
         $criteoRequest['Currency']                          = "EUR"; //$content['cur'];
-        $criteoRequest['ext']['btid']                       = $this->helper->Get($content, array('ext', 'btid'));
 
         $request = array('bidrequest' => $criteoRequest);
 

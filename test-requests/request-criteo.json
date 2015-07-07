@@ -2,9 +2,9 @@
 	"bidrequest": {
 		"Analysis": 1,
 		"PublisherID": "123",
-		"Timeout": 120,
+		"Timeout": 500,
 		"AppInfo": {
-			"AppId": "123",
+			"AppId": "42",
 			"AppName": "Yahoo"
 		},
 		"RequestID": "39f95888-0450-4afc-9b8b-eabd81a69ddc",
@@ -33,7 +33,7 @@
 		}],
 		"Currency": "EUR",
 		"ext": {
-			"btid": 42
+			"btid": null
 		}
 	}
 }
