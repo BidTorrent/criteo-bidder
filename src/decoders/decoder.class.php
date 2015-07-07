@@ -53,7 +53,7 @@ class Decoder
     }
     
     private function Sign($price, $requestId, $publisherId, $bidfloor) {
-        if ($this->privateKeyFile == 0 || !file_exists($this->privateKeyFile))
+        if ($this->privateKeyFile == '' || !file_exists($this->privateKeyFile))
             return '';
         $key = file_get_contents($this->privateKeyFile);
         $data = number_format($price, 6, ".", "").
@@ -66,8 +66,6 @@ class Decoder
     }
 
     private function Set(&$obj, $keys, $value) {
-        if ($value == null)
-            return;
         if (count($keys) == 1)
             $obj[$keys[0]] = $value;
         elseif (count($keys) > 1) {
