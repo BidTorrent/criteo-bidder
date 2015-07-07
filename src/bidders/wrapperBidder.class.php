@@ -12,7 +12,7 @@ class WrapperBidder{
 
     function GetResponse($request) {
 
-        $userId = isset($cookies['uid']) ? $cookies['uid'] : '';
+        $userId = isset($_COOKIE['uid']) ? $_COOKIE['uid'] : '';
 
         header("X-CriteoBidder-UserId: $userId");
 
