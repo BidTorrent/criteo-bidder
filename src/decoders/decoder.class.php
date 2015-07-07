@@ -41,7 +41,7 @@ class Decoder
         $price = $this->Get($response, array('seatbid', 0, 'bid', 0, 'price'));
         $reqId = $this->Get($response, array('id'));
 
-        $this->Set($response, array('seatbid', 0, 'bid', 0, 'signature'), $this->Sign(
+        $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'signature'), $this->Sign(
             $price, 
             $reqId, 
             $this->btId,
@@ -61,7 +61,8 @@ class Decoder
                 $publisherId.
                 number_format($bidfloor, 6, ".", "");
         openssl_sign($data, $result, $key);
-        return base64_encode($result);
+        $signature = base64_encode($result);
+        return $signature;
     }
 
     private function Set(&$obj, $keys, $value) {
