@@ -9,7 +9,7 @@
     include('bidders/testBidder.class.php');
     include('bidders/wrapperBidder.class.php');
 
-    $helper = new DecoderHelper('keys/key-1-private.pem');
+    $helper = new DecoderHelper('keys/key-2-private.pem');
     $decoder = new CriteoBidTorrentDecoder($helper);
     $userResolver = new UserResolver();
     $innerBidder = new TestBidder();
