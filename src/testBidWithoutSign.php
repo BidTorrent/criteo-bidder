@@ -7,7 +7,7 @@
     include('bidders/testBidder.class.php');
     include('bidders/wrapperBidder.class.php');
 
-    $decoder = new Decoder('keys/key-2-private.pem');
+    $decoder = new Decoder('');
     $userResolver = new UserResolver();
     $innerBidder = new TestBidder();
 

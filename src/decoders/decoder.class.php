@@ -1,5 +1,5 @@
 <?php
-class CriteoBidTorrentDecoder
+class Decoder
 {
     var $bidfloor;
     var $btid;
@@ -53,6 +53,8 @@ class CriteoBidTorrentDecoder
     }
     
     private function Sign($price, $requestId, $publisherId, $bidfloor) {
+        if ($this->privateKeyFile == 0 || !file_exists($this->privateKeyFile))
+            return '';
         $key = file_get_contents($this->privateKeyFile);
         $data = number_format($price, 6, ".", "").
                 $requestId.
