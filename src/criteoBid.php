@@ -8,7 +8,7 @@
     include('bidders/wrapperBidder.class.php');
 
     $decoder = new Decoder('keys/key-1-private.pem');
-    $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=61');
+    $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=61&debug=1');
 
     $bidder = new WrapperBidder(
         $decoder,
