@@ -20,9 +20,9 @@ class Decoder
         $this->Set($request, array('user', 'buyeruid'), $userId);
         $this->Set($request, array('device', 'ip'), $userIp);
         $this->bidfloor = $this->Get($request, array('imp', 0, 'bidfloor'));
-        $this->btId = $this->Get($request, array('site', 'publisher', 'id'));
+        $this->btid = $this->Get($request, array('site', 'publisher', 'id'));
         if ($this->btid == null)
-            $this->btId = $this->Get($request, array('app', 'publisher', 'id'));
+            $this->btid = $this->Get($request, array('app', 'publisher', 'id'));
 
         $decodedRequest = $request;
         return true;
@@ -47,7 +47,7 @@ class Decoder
         $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'signature'), $this->Sign(
             $price,
             $reqId.'-'.$impId,
-            $this->btId,
+            $this->btid,
             $this->bidfloor
             ));
 
