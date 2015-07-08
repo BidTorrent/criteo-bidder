@@ -60,7 +60,7 @@ class Decoder
             return '';
         $key = file_get_contents($this->privateKeyFile);
         $data = number_format($price, 6, ".", "").
-                $requestId.
+                $requestIDdashImpId.
                 $publisherId.
                 number_format($bidfloor, 6, ".", "");
 
