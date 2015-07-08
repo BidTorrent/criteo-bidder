@@ -3,13 +3,8 @@
 		"id": "MyID",
 		"buyeruid": "7387e308-fd65-40fd-ad90-564f6104d603"
 	},
-	"site": {
+	"app": {
 		"id": "123",
-		"cat": ["IAB1",
-		"IAB9",
-		"IAB9-30",
-		"entertainment",
-		"games"],
 		"domain": "www.bbc.com",
 		"mobile": 1,
 		"publisher": {
@@ -17,12 +12,6 @@
 			"name": "Yahoo"
 		}
 	},
-	"badv": ["porn.com",
-	"badcontent2.net",
-	"competitivegame.com"],
-	"bcat": ["IAB6-7",
-	"IAB7-3",
-	"IAB7-28"],
 	"cur": "USD",
 	"device": {
 		"geo": {
@@ -33,6 +22,7 @@
 		"language": "en",
 		"make": "Apple",
 		"model": "iPhone",
+		"os": "iOS",
 		"ua": "Mozilla\/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit\/536.26 (KHTML, like Gecko) Mobile\/10B329"
 	},
 	"id": "39f95888-0450-4afc-9b8b-eabd81a69ddc",

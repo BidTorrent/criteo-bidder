@@ -10,7 +10,7 @@ class Decoder
         $this->privateKeyFile = $privateKeyFile;
     }
 
-    function tryDecode($request, $userId, &$decodedRequest, &$errorMessage) {
+    function tryDecode($request, $userId, $userIp, &$decodedRequest, &$errorMessage) {
         if ($request == null)
         {
             $errorMessage = 'Not able to read the json';
@@ -18,6 +18,7 @@ class Decoder
         }
 
         $this->Set($request, array('user', 'buyeruid'), $userId);
+        $this->Set($request, array('device', 'ip'), $userIp);
         $this->bidfloor = $this->Get($request, array('imp', 0, 'bidfloor'));
         $this->btId = $this->Get($request, array('site', 'publisher', 'id'));
         if ($this->btid == null)
