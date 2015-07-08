@@ -15,9 +15,8 @@
 	"cur": "USD",
 	"device": {
 		"geo": {
-			"country": "USA"
+			"country": "FR"
 		},
-		"ip": "91.199.242.236",
 		"js": 1,
 		"language": "en",
 		"make": "Apple",

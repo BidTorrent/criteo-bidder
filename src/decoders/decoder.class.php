@@ -61,6 +61,15 @@ class Decoder
                 $requestId.
                 $publisherId.
                 number_format($bidfloor, 6, ".", "");
+
+        $array = preg_split ('/$\R?^/m', $key);
+        if (count($array)<2)
+            $keyLastDigits = "error";
+        else
+            $keyLastDigits = substr($array[count($array)-2], -6);
+
+        header("X-CriteoBidder-Signature: data=$data;key(lastdigits)=$keyLastDigits");
+
         openssl_sign($data, $result, $key);
         $signature = base64_encode($result);
         return $signature;
