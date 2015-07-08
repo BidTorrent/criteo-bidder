@@ -41,10 +41,12 @@ class Decoder
 
         $price = $this->Get($response, array('seatbid', 0, 'bid', 0, 'price'));
         $reqId = $this->Get($response, array('id'));
+        $impId = $this->Get($response, array('seatbid', 0, 'bid', 0, 'impid'));
+        
 
         $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'signature'), $this->Sign(
-            $price, 
-            $reqId, 
+            $price,
+            $reqId.'-'.$impId,
             $this->btId,
             $this->bidfloor
             ));
@@ -53,7 +55,7 @@ class Decoder
         return true;
     }
     
-    private function Sign($price, $requestId, $publisherId, $bidfloor) {
+    private function Sign($price, $requestIDdashImpId, $publisherId, $bidfloor) {
         if ($this->privateKeyFile == '' || !file_exists($this->privateKeyFile))
             return '';
         $key = file_get_contents($this->privateKeyFile);
