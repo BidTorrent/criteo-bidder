@@ -18,7 +18,7 @@ class TestBidder {
                                     "bid": [{
                                         "id": "559bde378d2fc1f55b9d68f718be4410",
                                         "impid": "1",
-                                        "price": 13.71,
+                                        "price": 0.02,
                                         "adid": "22",
                                         "crid": "2300751",
                                         "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
@@ -35,7 +35,7 @@ class TestBidder {
                                     "bid": [{
                                         "id": "559bde378d2fc1f55b9d68f718be4410",
                                         "impid": "1",
-                                        "price": 13.71,
+                                        "price": 0.02,
                                         "adid": "22",
                                         "crid": "2300751",
                                         "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
@@ -52,7 +52,7 @@ class TestBidder {
                                     "bid": [{
                                         "id": "559bde378d2fc1f55b9d68f718be4410",
                                         "impid": "1",
-                                        "price": 13.71,
+                                        "price": 0.02,
                                         "adid": "22",
                                         "crid": "2300751",
                                         "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
@@ -69,7 +69,7 @@ class TestBidder {
                                     "bid": [{
                                         "id": "559bdfa7f68e949e703bffa420f33f30",
                                         "impid": "1",
-                                        "price": 16.77,
+                                        "price": 0.02,
                                         "adid": "22",
                                         "crid": "2300751",
                                         "iurl": "http://static.criteo.net/images/_logo_privacy/laredoute_fr_logo.jpg",
