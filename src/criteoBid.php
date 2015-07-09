@@ -7,8 +7,14 @@
     include('bidders/criteoBidder.class.php');
     include('bidders/wrapperBidder.class.php');
 
+    $debug = isset($_GET['debug']) ? $_GET['debug'] : '';
+
     $decoder = new Decoder('keys/key-1-private.pem');
-    $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=61&debug=1');
+
+    if ($debug == '1')
+        $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=61&debug=1');
+    else
+        $innerBidder = new CriteoBidder('http://rtb-validation.fr.eu.criteo.com/delivery/auction/request?profile=61');
 
     $bidder = new WrapperBidder(
         $decoder,
