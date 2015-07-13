@@ -52,8 +52,8 @@
         "pos": 1,
         "w": 300
         },
-      "bidfloor": 0.01,
-      "id": "1",
+      "bidfloor": 0.0000,
+      "id": "AAABBB",
       "instl": 1,
       "secure": false
     } ],

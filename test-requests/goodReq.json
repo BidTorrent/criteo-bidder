@@ -1,33 +1,17 @@
 {
 	"user": {
-		"id": "MyID",
 		"buyeruid": "7387e308-fd65-40fd-ad90-564f6104d603"
 	},
 	"site": {
 		"id": "123",
-		"cat": ["IAB1",
-		"IAB9",
-		"IAB9-30",
-		"entertainment",
-		"games"],
-		"domain": "www.bbc.com",
 		"mobile": 1,
 		"publisher": {
 			"id": "42",
 			"name": "Yahoo"
 		}
 	},
-	"badv": ["porn.com",
-	"badcontent2.net",
-	"competitivegame.com"],
-	"bcat": ["IAB6-7",
-	"IAB7-3",
-	"IAB7-28"],
 	"cur": "USD",
 	"device": {
-		"geo": {
-			"country": "USA"
-		},
 		"ip": "91.199.242.236",
 		"js": 1,
 		"language": "en",
@@ -43,10 +27,10 @@
 			"pos": 1,
 			"w": 300
 		},
-		"bidfloor": 0,
-		"id": "AAABBB",
+		"bidfloor": 0.01,
+		"id": "1",
 		"instl": 1,
 		"secure": false
 	}],
-    "tmax": 500
+	"tmax": 500
 }

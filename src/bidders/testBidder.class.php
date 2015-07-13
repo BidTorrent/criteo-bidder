@@ -14,7 +14,7 @@ class TestBidder {
 		$response = array
 		(
 			'cur' => 'USD',
-			'id' => '39f95888-0450-4afc-9b8b-eabd81a69ddc',
+			'id' => $request['id'],
 			'seatbid' => array
 			(
 				array
@@ -24,7 +24,7 @@ class TestBidder {
 						array
 						(
 							'id' => '559bde378d2fc1f55b9d68f718be4410',
-							'impid' => '1',
+							'impid' => $request['imp'][0]['id'],
 							'price' => 0.02,
 							'adid' => '22',
 							'crid' => '2300751',
