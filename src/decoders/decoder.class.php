@@ -39,14 +39,15 @@ class Decoder
             return false;
         }
 
-        $price = $this->Get($response, array('seatbid', 0, 'bid', 0, 'price'));
-        $reqId = $this->Get($response, array('id'));
+        $auctionId = $this->Get($response, array('id'));
         $impId = $this->Get($response, array('seatbid', 0, 'bid', 0, 'impid'));
+        $price = $this->Get($response, array('seatbid', 0, 'bid', 0, 'price'));
         
 
         $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'signature'), $this->Sign(
             $price,
-            $reqId.'-'.$impId,
+            $auctionId,
+			$impId,
             $this->btid,
             $this->bidfloor
             ));
@@ -55,14 +56,12 @@ class Decoder
         return true;
     }
     
-    private function Sign($price, $requestIDdashImpId, $publisherId, $bidfloor) {
+    private function Sign($price, $auctionId, $impId, $publisherId, $bidfloor) {
         if ($this->privateKeyFile == '' || !file_exists($this->privateKeyFile))
             return '';
+
+        $data = number_format($price, 6, '.', '') . '|' . $auctionId . '|' . $impId . '|' . $publisherId . '|' . number_format($bidfloor, 6, '.', '');
         $key = file_get_contents($this->privateKeyFile);
-        $data = number_format($price, 6, ".", "").
-                $requestIDdashImpId.
-                $publisherId.
-                number_format($bidfloor, 6, ".", "");
 
         $array = preg_split ('/$\R?^/m', $key);
         if (count($array)<2)
