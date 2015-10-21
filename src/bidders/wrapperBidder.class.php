@@ -13,9 +13,7 @@ class WrapperBidder{
     function GetResponse($request) {
 
         $userId = isset($_COOKIE['uid']) ? $_COOKIE['uid'] : '';
-        $userIp = $_SERVER['REMOTE_ADDR'];
-        if ($userIp == '127.0.0.1')
-            $userIp = '91.199.242.236';
+        $userIp = isset ($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 
         header("X-CriteoBidder-UserId: $userId");
         header("X-CriteoBidder-UserIp: $userIp");
@@ -26,7 +24,7 @@ class WrapperBidder{
 
         $rawResponse = $this->bidder->GetResponse($bidRequest);
 
-        if (!$this->decoder->tryEncode($rawResponse, $response, $errorMessage)) {
+        if (!$this->decoder->tryEncode($rawResponse, $userIp, $response, $errorMessage)) {
             $this->ReturnNoBid($errorMessage);
         }
 

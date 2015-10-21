@@ -1,6 +1,8 @@
 <?php
 class Decoder
 {
+	const VERSION = 1;
+
     var $bidfloor;
     var $btid;
 
@@ -28,7 +30,7 @@ class Decoder
         return true;
     }
 
-    function tryEncode($response, &$encodedResponse, &$errorMessage) {
+    function tryEncode($response, $userIp, &$encodedResponse, &$errorMessage) {
         if ($response == null) {
             $errorMessage = "No response from CRITEO";
             return false;
@@ -41,26 +43,24 @@ class Decoder
 
         $auctionId = $this->Get($response, array('id'));
         $impId = $this->Get($response, array('seatbid', 0, 'bid', 0, 'impid'));
+		$now = time();
         $price = $this->Get($response, array('seatbid', 0, 'bid', 0, 'price'));
-        
+		$signature = $this->Sign($price, $auctionId, $impId, $this->btid, $this->bidfloor, $now, $userIp);
 
-        $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'signature'), $this->Sign(
-            $price,
-            $auctionId,
-			$impId,
-            $this->btid,
-            $this->bidfloor
-            ));
+        $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'address'), $userIp);
+        $this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'signature'), $signature);
+		$this->set($response, array('seatbid', 0, 'bid', 0, 'ext', 'timestamp'), $now);
+		$this->Set($response, array('seatbid', 0, 'bid', 0, 'ext', 'version'), self::VERSION);
 
         $encodedResponse = $response;
         return true;
     }
     
-    private function Sign($price, $auctionId, $impId, $publisherId, $bidfloor) {
+    private function Sign($price, $auctionId, $impId, $publisherId, $bidfloor, $now, $userIp) {
         if ($this->privateKeyFile == '' || !file_exists($this->privateKeyFile))
             return '';
 
-        $data = number_format($price, 6, '.', '') . '|' . $auctionId . '|' . $impId . '|' . $publisherId . '|' . number_format($bidfloor, 6, '.', '');
+		$data = implode('|', array(self::VERSION, number_format($price, 6, '.', ''), $now, $userIp, $auctionId, $impId, $publisherId, number_format($bidfloor, 6, '.', '')));
         $key = file_get_contents($this->privateKeyFile);
 
         $array = preg_split ('/$\R?^/m', $key);
